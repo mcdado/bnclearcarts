@@ -1,6 +1,6 @@
 # Clear Carts
 
-Clear carts for a customer when an order is made by such customer.
+PrestaShop module to avoid abandoned cart reminders to a customer when he/she places an order with a new cart.
 
 ## Credits
 

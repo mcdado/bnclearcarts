@@ -23,18 +23,12 @@ class BNClearCarts extends Module
         $this->description = $this->l('Clear carts for a customer when an order is made by such customer.');
 
         $this->ps_versions_compliancy = array('min' => '1.6', 'max' => _PS_VERSION_);
-        $this->prefix = Tools::strtoupper($this->name);
     }
 
     public function install()
     {
         return parent::install() &&
             $this->registerHook('actionObjectOrderAddAfter');
-    }
-
-    public function uninstall()
-    {
-        return parent::uninstall();
     }
 
     public function hookActionObjectOrderAddAfter($params)
@@ -46,6 +40,6 @@ class BNClearCarts extends Module
             AND c.`id_shop` = '.$this->context->shop->id.'
             AND o.id_order IS NULL';
 
-        return $carts = Db::getInstance()->executeS($sql);
+        return Db::getInstance()->execute($sql);
     }
 }
